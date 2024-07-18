@@ -1,0 +1,20 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: spring-gazin-test-app
+  description: "sample description"
+  annotations:
+    github.com/project-slug: veecode-apr/spring-gazin-test-app
+    backstage.io/techdocs-ref: dir:..
+    backstage.io/kubernetes-id: "spring-gazin-test-app"
+    vault.io/secrets-path: "spring-gazin-test-app"
+    grafana/dashboard-selector: "spring-gazin-test-app"
+    grafana/alert-label-selector: "alertname=spring-gazin-test-app"
+    argocd/proxy-url: '/argocd/api'
+    argocd/app-name: "spring-gazin-test-app"
+    kong-manager/service-name: veecode-apr.spring-gazin-test-app-service-0.8080
+    kong-manager/instance: /kong-manager/api
+spec:
+  type: service
+  lifecycle: experimental
+  owner: "group:default/admin"

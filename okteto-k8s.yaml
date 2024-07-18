@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-gazin-test-app 
+spec:
+  selector:
+    matchLabels:
+      app: spring-gazin-test-app
+  template:
+    metadata:
+      labels:
+        app: spring-gazin-test-app
+    spec:
+      containers:
+        - image: okteto.dev/java-gradle-spring-gazin-test-app:1.0.0
+          name: spring-gazin-test-app
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: spring-gazin-test-app
+spec:
+  type: ClusterIP
+  ports:
+    - name: "spring-gazin-test-app"
+      port: 8080
+  selector:
+    app: spring-gazin-test-app
+
+---
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: spring-gazin-test-app
+  annotations:
+    dev.okteto.com/generate-host: spring-gazin-test-app
+spec:
+  rules:
+    - http:
+        paths:
+          - backend:
+              service:
+                name: spring-gazin-test-app
+                port:
+                  number: 8080
+            path: /
+            pathType: ImplementationSpecific

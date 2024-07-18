@@ -1,0 +1,24 @@
+version: '3.8'
+services:
+  spring-gazin-test-app:
+    container_name: spring-gazin-test-app 
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+  postgres-compose:
+    image: postgres
+    environment:
+      - POSTGRES_USER=
+      - POSTGRES_PASSWORD=
+      - POSTGRES_DB=postgresql_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data 
+    networks:
+      - postgres-compose-network
+networks: 
+  postgres-compose-network:
+    driver: bridge
