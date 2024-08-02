@@ -5,7 +5,7 @@ metadata:
   description: "sample description"
   annotations:
     github.com/project-slug: veecode-apr/spring-gazin-test-app
-    backstage.io/techdocs-ref: dir:..
+    #backstage.io/techdocs-ref: dir:..
     backstage.io/kubernetes-id: "spring-gazin-test-app"
     vault.io/secrets-path: "spring-gazin-test-app"
     grafana/dashboard-selector: "spring-gazin-test-app"
