@@ -3,7 +3,7 @@ kind: API
 metadata:
   name: spring-gazin-test-app
   title: spring-gazin-test-app
-  publishedAt: "2024-07-18 17:56:35"
+  publishedAt: "2024-08-02 15:08:53"
   description: 'sample description Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).  For this sample, you can use the api key `special-key` to test the authorization filters.'
   tags:
     - rest
